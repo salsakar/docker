@@ -3,3 +3,6 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 9074915e8073        nginx               "nginx -g 'daemon of…"   31 seconds ago      Exited (0) 11 seconds ago                       frosty_curie
 ebc9a8668c72        nginx               "nginx -g 'daemon of…"   33 seconds ago      Exited (0) 3 seconds ago                        ecstatic_bartik
 fda6b2401c72        nginx               "nginx -g 'daemon of…"   36 seconds ago      Up 35 seconds               80/tcp              lucid_elgamal
+
+
+
