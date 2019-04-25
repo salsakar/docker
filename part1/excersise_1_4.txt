@@ -1,0 +1,21 @@
+root@5fb77acfc42c:/usr/app# tail -f ./logs.txt 
+Thu, 25 Apr 2019 11:10:01 GMT
+Thu, 25 Apr 2019 11:10:04 GMT
+Secret message is:
+"Docker is easy"
+Thu, 25 Apr 2019 11:10:10 GMT
+Thu, 25 Apr 2019 11:10:13 GMT
+Thu, 25 Apr 2019 11:10:16 GMT
+Thu, 25 Apr 2019 11:10:19 GMT
+Secret message is:
+"Docker is easy"
+Thu, 25 Apr 2019 11:10:25 GMT
+Thu, 25 Apr 2019 11:10:28 GMT
+
+
+
+
+
+
+
+
