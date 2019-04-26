@@ -1,8 +1,0 @@
-Sakaris-MacBook-Air:docker ss$ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-Sakaris-MacBook-Air:docker ss$ docker ps -a
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-Sakaris-MacBook-Air:docker ss$ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-Sakaris-MacBook-Air:docker ss$ 
-
