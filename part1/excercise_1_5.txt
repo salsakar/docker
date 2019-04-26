@@ -1,0 +1,8 @@
+docker run -d --name looper ubuntu:16.04 sh -c 'while true; do date; sleep 1; done'
+docker exec -it looper bash
+	apt-get update
+	apt-get install curl
+	exit
+docker exec -it looper sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+
+
