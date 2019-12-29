@@ -1,0 +1,10 @@
+ss$ docker build -t front .
+ss$ cd ..
+ss$ cd back
+ss$ docker build -t back .
+ss$ touch logs.txt
+ss$ docker run -d -it -v $(pwd)/logs/logs.txt:/usr/app/logs.txt -p 8000:8000 back
+ss$ cd ..
+ss$ cd front
+ss$ docker run -d -it -p 5000:5000 front
+
