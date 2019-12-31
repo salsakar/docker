@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+
+        back:
+           environment:
+                - FRONT_URL=http://localhost:5000
+           build:
+              context: back/.
+              dockerfile: Dockerfile_back
+           ports:
+              - 8000:8000
+           container_name: back
+           entrypoint: npm start
+
+        front:
+           environment:
+               - API_URL=http://localhost:8000
+           build: 
+              context: front/.
+              dockerfile: Dockerfile_front
+           ports:
+              - 5000:5000
+           container_name: front                
+           entrypoint: npm start
