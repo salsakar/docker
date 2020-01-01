@@ -1,0 +1,35 @@
+version: '3.5'
+
+services:
+
+        redis:
+
+           image: redis
+           container_name: redis
+           volumes:
+             - ./data:/data
+           restart: unless-stopped
+
+        back:
+
+           environment:
+                - FRONT_URL=http://localhost:5000
+                - REDIS=redis
+           build:
+              context: back/.
+              dockerfile: Dockerfile_back
+           ports:
+              - 8000:8000
+           container_name: back
+           entrypoint: npm start
+        
+        front:
+           environment:
+               - API_URL=http://localhost:8000
+           build: 
+              context: front/.
+              dockerfile: Dockerfile_front
+           ports:
+              - 5000:5000
+           container_name: front                
+           entrypoint: npm start
