@@ -5,12 +5,16 @@ services:
         redis:
            image: redis
            container_name: redis
+           volumes:
+             - ./data:/data
            restart: unless-stopped
 
         postgres:
            image: postgres
            environment:
              - POSTGRES_PASSWORD=dbpasswd
+           volumes:
+             - ./dbdata:/var/lib/postgresql/data
 
         back:
 
@@ -41,3 +45,9 @@ services:
            container_name: front                
            entrypoint: npm start
 
+        nginx:
+          image: nginx
+          ports:
+            - 80:80
+          volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
