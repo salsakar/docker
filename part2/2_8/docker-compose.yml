@@ -1,0 +1,51 @@
+version: '3.5'
+
+services:
+
+        redis:
+           image: redis
+           container_name: redis
+           volumes:
+             - ./data:/data
+           restart: unless-stopped
+
+        postgres:
+           image: postgres
+           environment:
+             - POSTGRES_PASSWORD=dbpasswd
+
+        back:
+
+           environment:
+                - FRONT_URL=http://localhost:5000
+                - REDIS=redis
+                - DB_HOST=postgres
+                - DB_NAME=postgres
+                - DB_USERNAME=postgres
+                - DB_PASSWORD=dbpasswd
+
+           build:
+              context: back/.
+              dockerfile: Dockerfile_back
+           ports:
+              - 8000:8000
+           container_name: back
+           entrypoint: npm start
+        
+        front:
+           environment:
+               - API_URL=http://localhost:8000
+           build: 
+              context: front/.
+              dockerfile: Dockerfile_front
+           ports:
+              - 5000:5000
+           container_name: front                
+           entrypoint: npm start
+
+        nginx:
+          image: nginx
+          ports:
+            - 80:80
+          volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
