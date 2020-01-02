@@ -1,0 +1,33 @@
+version: '3.5'
+
+services:
+
+        training:
+
+           build: training/.
+           container_name: training
+           volumes:
+              - imgs:/src/imgs
+              - data:/src/data
+              - model:/src/model
+
+        back:
+
+           build: back/.
+           ports:
+              - 5000:5000
+           container_name: back
+           volumes:
+              - model:/src/model
+        
+        front:
+
+           build: front/.
+           ports:
+              - 3000:3000
+           container_name: front                
+
+volumes:
+    model:
+    data:
+    imgs:
